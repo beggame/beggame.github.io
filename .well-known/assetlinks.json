@@ -3,6 +3,17 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
+      "package_name": "com.beg.bedlam",
+      "sha256_cert_fingerprints": [
+        "1E:16:0C:2C:0C:75:28:23:75:16:90:D2:0D:E0:C7:5F:C3:9F:57:64:45:28:BE:CA:D4:77:D2:87:ED:7E:6D:28",
+        "A7:A2:6F:31:A8:8C:6C:A7:3F:BC:CC:BE:97:EB:4A:67:2B:0E:5C:FA:11:47:47:E6:34:6F:E5:03:3C:12:FA:B0"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
       "package_name": "com.beg.bedlam.dev",
       "sha256_cert_fingerprints": ["9F:2B:50:66:53:6E:EB:52:20:1E:9C:B1:47:53:F0:34:BE:00:67:90:EF:B3:0F:8C:28:34:D2:58:05:C3:6C:1B"]
     }
