@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bedlam — Meydan Okuma</title>
+<meta name="description" content="Meydan okundu! Oyuna gir, kodla katıl.">
+<meta property="og:title" content="Bedlam">
+<meta property="og:description" content="Meydan okundu! Oyuna gir, kodla katıl.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;overflow-x:hidden}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px 16px;text-align:center;font-family:Fredoka,sans-serif;font-weight:600;color:#fff;background:linear-gradient(160deg,#2b1607,#3a1a4d 70%,#4a1a5e)}
+h1{font:clamp(64px,22vw,120px)/1 "Luckiest Guy",Fredoka,sans-serif;margin:0;color:#fff;text-shadow:0 5px 0 #2b1607,3px 0 0 #2b1607,-3px 0 0 #2b1607,0 -3px 0 #2b1607}
+h1 span{color:#ffd23f}
+h2{font:clamp(26px,8vw,40px)/1.1 "Luckiest Guy",Fredoka,sans-serif;margin:0;color:#fff;text-shadow:0 3px 0 #2b1607}
+#kod{display:none;font:clamp(44px,15vw,80px)/1 "Luckiest Guy",Fredoka,sans-serif;letter-spacing:.14em;padding:10px 12px 10px 26px;border-radius:999px;border:5px solid #2b1607;box-shadow:0 6px 0 #2b1607;color:#2b1607;background:linear-gradient(#fff6c8,#ffd23f,#ff9f1c)}
+.b{display:block;width:min(100%,320px);padding:16px 20px;border-radius:999px;border:5px solid #2b1607;box-shadow:0 6px 0 #2b1607;color:#fff;text-decoration:none;font:clamp(24px,7vw,32px)/1.1 "Luckiest Guy",Fredoka,sans-serif;text-shadow:0 2px 0 #2b1607}
+.b:active{transform:translateY(4px);box-shadow:0 2px 0 #2b1607}
+#ac{display:none;background:linear-gradient(#e5005a,#ff4d8d)}
+#dl{background:#ff9f1c}
+</style>
+</head>
+<body>
+<h1>BED<span>LAM</span></h1>
+<h2 id="t"></h2>
+<div id="kod"></div>
+<a class="b" id="ac" href="#"></a>
+<a class="b" id="dl" href="https://play.google.com/store/apps/details?id=com.beg.bedlam"></a>
+<script>
+(function(){
+var tr=/^tr/i.test(navigator.language||'tr');
+var p=new URLSearchParams(location.search);
+var k=(p.get('k')||'').toUpperCase();
+if(!/^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}$/.test(k))k='';
+document.getElementById('t').textContent=tr?'MEYDAN OKUNDU!':"YOU'VE BEEN CHALLENGED!";
+document.getElementById('dl').textContent=tr?'İNDİR':'GET IT ON GOOGLE PLAY';
+if(k){var c=document.getElementById('kod');c.textContent=k;c.style.display='block';}
+if(/Android/i.test(navigator.userAgent)){
+var a=document.getElementById('ac');
+a.textContent=tr?'OYUNU AÇ':'OPEN GAME';
+a.href='intent://katil'+(k?'?k='+k:'')+'#Intent;scheme=bedlam;package=com.beg.bedlam;S.browser_fallback_url='+encodeURIComponent('https://play.google.com/store/apps/details?id=com.beg.bedlam')+';end';
+a.style.display='block';
+}
+})();
+</script>
+</body>
+</html>
