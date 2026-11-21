@@ -32,17 +32,29 @@ h2{font:clamp(26px,8vw,40px)/1.1 "Luckiest Guy",Fredoka,sans-serif;margin:0;colo
 <a class="b" id="dl" href="https://play.google.com/store/apps/details?id=com.beg.bedlam"></a>
 <script>
 (function(){
-var tr=/^tr/i.test(navigator.language||'tr');
+/* Metin tablosu: dil kodu (tarayici dilinin ilk iki harfi) -> metinler. Bilinmeyen dil EN'e duser. */
+var T={
+tr:{t:'MEYDAN OKUNDU!',ac:'OYUNU AÇ',dl:'İNDİR'},
+en:{t:"YOU'VE BEEN CHALLENGED!",ac:'OPEN GAME',dl:'GET IT ON GOOGLE PLAY'},
+es:{t:'¡TE HAN RETADO!',ac:'ABRIR JUEGO',dl:'CONSÍGUELO EN GOOGLE PLAY'},
+pt:{t:'VOCÊ FOI DESAFIADO!',ac:'ABRIR O JOGO',dl:'BAIXAR NO GOOGLE PLAY'},
+id:{t:'KAMU DITANTANG!',ac:'BUKA GAME',dl:'UNDUH DI GOOGLE PLAY'}
+};
+var lg=(navigator.language||'tr').slice(0,2).toLowerCase();
+if(!T[lg])lg='en';
+var S=T[lg];
+document.documentElement.lang=lg;
 var p=new URLSearchParams(location.search);
 var k=(p.get('k')||'').toUpperCase();
 if(!/^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}$/.test(k))k='';
-document.getElementById('t').textContent=tr?'MEYDAN OKUNDU!':"YOU'VE BEEN CHALLENGED!";
-document.getElementById('dl').textContent=tr?'İNDİR':'GET IT ON GOOGLE PLAY';
+var sk=p.get('s');if(sk!=='p'&&sk!=='q')sk='';
+document.getElementById('t').textContent=S.t;
+document.getElementById('dl').textContent=S.dl;
 if(k){var c=document.getElementById('kod');c.textContent=k;c.style.display='block';}
 if(/Android/i.test(navigator.userAgent)){
 var a=document.getElementById('ac');
-a.textContent=tr?'OYUNU AÇ':'OPEN GAME';
-a.href='intent://katil'+(k?'?k='+k:'')+'#Intent;scheme=bedlam;package=com.beg.bedlam;S.browser_fallback_url='+encodeURIComponent('https://play.google.com/store/apps/details?id=com.beg.bedlam')+';end';
+a.textContent=S.ac;
+a.href='intent://katil'+(k?'?k='+k+(sk?'&s='+sk:''):'')+'#Intent;scheme=bedlam;package=com.beg.bedlam;S.browser_fallback_url='+encodeURIComponent('https://play.google.com/store/apps/details?id=com.beg.bedlam')+';end';
 a.style.display='block';
 }
 })();

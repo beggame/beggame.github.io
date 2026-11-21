@@ -17,5 +17,13 @@
       "package_name": "com.beg.bedlam.dev",
       "sha256_cert_fingerprints": ["9F:2B:50:66:53:6E:EB:52:20:1E:9C:B1:47:53:F0:34:BE:00:67:90:EF:B3:0F:8C:28:34:D2:58:05:C3:6C:1B"]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.beg.bedlam.godot",
+      "sha256_cert_fingerprints": ["E3:F0:2E:66:4D:52:F6:0B:2A:33:60:EF:28:AB:51:B1:A9:8A:DD:74:6F:31:9B:FD:02:0F:40:FF:23:08:06:21"]
+    }
   }
 ]
